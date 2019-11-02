@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>
+      Reciclaje
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <img src="assets/reciclaje.jpg">
+        <ion-card-header>
+         <ion-card-title>
+            <h1 style = "text-align: center; font-size: 19px;">
+              DALE VIDA NUEVA A UN OBJETO
+            </h1>
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h1 style = "text-align: justify; font-size: 15px;">
+         Como comunidad sabemos que para dejar de generar mas basura es ideal el reciclaje, es por eso que en este apartado encontraras centros de reciclaje asi como los productos que puedes llevar.
+            </h1>
+        </ion-card-content>
+      </ion-card>
+  <ion-slides #mySlides (ionSlideDidChange)="onSlideChanged(mySlides)" pager="true">
+    <ion-slide *ngFor="let lugar of lugaresLista">
+      <ion-card>
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="lugar.nombre" value="{{lugar.nombre}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Descripcion</ion-label>
+          <ion-input type="text" [(ngModel)]="lugar.descripcion" value="{{lugar.descripcion}}"></ion-input>
+        </ion-item>
+        <img [src]="lugar.urlImagen">
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  
+  <div class="centrado">
+      <div class="divButton">
+       <ion-button shape="round" size="large" type="submit" (click)="mostrarMapa()">Mostrar Mapa </ion-button>
+     </div>
+  </div>
+  
+</ion-content>

@@ -1,0 +1,25 @@
+
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      
+      <ion-title>
+          Centros de Reciclaje
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
+      <agm-marker *ngFor="let lugar of lugares" [latitude]="lat" [longitude]="lng" [label]="nombre">
+          <agm-info-window [disableAutoPan]="true">
+            <strong>{{lugar.nombre}}</strong>
+            <p>{{lugar.descripcion}}</p>
+            <img [src]="lugar.urlImagen" style="height: 100px; "
+            >
+          </agm-info-window>
+      </agm-marker>
+    </agm-map>
+</ion-content>
